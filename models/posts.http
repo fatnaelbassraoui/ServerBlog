@@ -1,0 +1,32 @@
+get http://localhost:3030/posts
+
+####
+
+get http://localhost:3030/post/featured
+####
+get http://localhost:3030/postNotFeatured
+
+####
+POST http://localhost:3030/posts HTTP/1.1
+content-Type: application/json
+
+{  
+        "author": "Post8",
+        "title":"featured",
+        "img":"https://images.pexels.com/photos/10225549/pexels-photo-10225549.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "category":"fantasy",
+        "featured": true
+        
+    }
+
+####
+
+DELETE http://localhost:3030/posts/63667c7020629e507e0586c0 HTTP/1.1
+
+####
+PATCH http://localhost:3030/posts/63695c9e796a2bda8122e0dc HTTP/1.1
+content-type: application/json
+
+{
+    "img":"https://images.pexels.com/photos/14341494/pexels-photo-14341494.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+}

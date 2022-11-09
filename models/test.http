@@ -1,0 +1,22 @@
+GET http://localhost:3030/users
+####
+POST http://localhost:3030/users HTTP/1.1
+content-Type: application/json
+
+{
+    "userName":"Faty87",
+    "email":"nvhfgfd@gmail.com",
+    "password":"ciao1234"
+}
+####
+
+DELETE http://localhost:3030/users/6362c15c0de2adb793ab6a03 HTTP/1.1
+####
+
+PATCH http://localhost:3030/users/6362c619504f6a4e447a39d5 HTTP/1.1
+content-type: application/json
+
+{
+    "userName":"Sofy22"
+}
+###

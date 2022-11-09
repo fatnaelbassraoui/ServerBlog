@@ -1,0 +1,27 @@
+GET http://localhost:3030/registeredUsers
+
+####
+POST http://localhost:3030/registeredUsers HTTP/1.1
+content-Type: application/json
+
+{  
+        "firstName": "Faty",
+        "lastName":"elba",
+        "gender":"F",
+        "age": 35,
+        "password":"ciao87",
+        "userName": "faty87",
+        "email": "sfsgd@gmail.com"
+    }
+
+####
+
+DELETE http://localhost:3030/registeredUsers/63666c5c51379ff7996c0b63 HTTP/1.1
+
+####
+PATCH http://localhost:3030/registeredUsers/6366722b1f1ad487bc63a799 HTTP/1.1
+content-type: application/json
+
+{
+    "userName":"Sofy22"
+}
