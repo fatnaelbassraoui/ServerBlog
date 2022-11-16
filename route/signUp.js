@@ -1,6 +1,6 @@
 const express = require('express')// faccio l'import di express framework che serve per la creazione in node
 const SignUp = require('../models/SignUp')// si fa l'import del modello per riflettere lo schema di dati presente nel data base
-
+const Bcrypt = require('bcrypt')
 
 const router = express.Router()// il router ci cerve per splittare il codice.
 
@@ -20,12 +20,14 @@ router.get('/registeredUsers', async (req, res) => {
 })
 
 router.post('/registeredUsers', async (req, res) => {
+    const salt = await Bcrypt.genSalt(10)// salt  l'algoritmo che cripta la password
+    const cryptedPassword = await Bcrypt.hash(req.body.password,salt) //hash esegue la generazione della stringa e dell'algoritmo
     const newRegisteredUsers = new SignUp({  // qui sto istanziando una nuova classe di signUp, ovvero creo un nuovo modello di signUp
         firstName: req.body.firstName,
         lastName: req.body.email,
         gender: req.body.gender,
         age: req.body.age,
-        password: req.body.password,
+        password: cryptedPassword,
         userName: req.body.userName,
         email: req.body.email
     })
@@ -89,3 +91,4 @@ router.patch('/registeredUsers/:id', async (req, res) => { //  si puo sovrascriv
 
 
 module.exports = router
+

@@ -1,21 +1,27 @@
 get http://localhost:3030/posts
 
 ####
-
-get http://localhost:3030/post/featured
+get http://localhost:3030//posts/:id
 ####
-get http://localhost:3030/postNotFeatured
+# get http://localhost:3030/post/featured
+# ####
+# get http://localhost:3030/postNotFeatured
 
+####
+get http://localhost:3030/post/type?featured=false
+####
+get http://localhost:3030/post/type?featured=true
 ####
 POST http://localhost:3030/posts HTTP/1.1
 content-Type: application/json
 
 {  
-        "author": "Post8",
-        "title":"featured",
-        "img":"https://images.pexels.com/photos/10225549/pexels-photo-10225549.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "category":"fantasy",
-        "featured": true
+        "author": "Lorem 21",
+        "title":"Where can i get some?",
+        "body":"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
+        "img":"https://i.pinimg.com/564x/04/ca/1d/04ca1dc413d77cc5afff831b606190f2.jpg",
+        "category":"fantasy fair",
+        "featured": false
         
     }
 
@@ -24,9 +30,9 @@ content-Type: application/json
 DELETE http://localhost:3030/posts/63667c7020629e507e0586c0 HTTP/1.1
 
 ####
-PATCH http://localhost:3030/posts/63695c9e796a2bda8122e0dc HTTP/1.1
+PATCH http://localhost:3030/posts/636d62a57739f09235fb1745 HTTP/1.1
 content-type: application/json
 
 {
-    "img":"https://images.pexels.com/photos/14341494/pexels-photo-14341494.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    "img":"https://i.pinimg.com/564x/04/ca/1d/04ca1dc413d77cc5afff831b606190f2.jpg"
 }

@@ -3,8 +3,10 @@ const mongoose= require('mongoose')
 const userRoute = require('./route/RouteUsers')
 const signUpRoute = require('./route/signUp')
 const postsRoute= require('./route/posts')
+const loginRoute = require('./route/login')
+require('dotenv').config()
 const cors= require('cors')
-const PORT = 3030
+const PORT = process.env.PORT
 
 
 const app = express()
@@ -13,16 +15,18 @@ app.use(express.json())
 app.use('/',userRoute)
 app.use('/',signUpRoute)
 app.use('/',postsRoute)
+app.use('/',loginRoute)
 
 
 
 
 
-mongoose.connect('mongodb+srv://Faty87:ft01111987@blogdb.rsk5o1z.mongodb.net/BlogDb?retryWrites=true&w=majority')
+mongoose.connect(process.env.DB_ADDRESS)
 
 const db = mongoose.connection
 db.on("error",()=>{
-    console.error.bind(console,'errore di connessione')
+    console.error.bind(console,'errore di connessione') //in questo file salviamo tutte le nostre variabili sensibili(es. password o dati sensibili in generale) che non dobbiamo committare su git
+                                                            //CHIAVE VALORE
 })
 
 db.once("open",()=>{

@@ -15,9 +15,51 @@ posts.get('/posts', async (req,res)=>{
     }
 })
 
-posts.get('/post/featured', async (req,res)=>{
+// posts.get('/post/featured', async (req,res)=>{
+//     try {
+//         const posts = await Posts.find({featured:true})
+//         res.status(200).send(posts)
+//     } catch (error) {
+//         res.status(500).send({
+//             message:'an error has occured'
+//         })
+//     }
+// })
+
+// posts.get('/postNotFeatured', async (req,res)=>{
+//     try {
+//         const posts = await Posts.find({featured:false})
+//         res.status(200).send(posts)
+//     } catch (error) {
+//         res.status(500).send({
+//             message:'an error has occured'
+//         })
+//     }
+// })
+
+posts.get("/posts/:id", async (req, res) => {
+    const {id} = req.params
     try {
-        const posts = await Posts.find({featured:true})
+      const post = await Posts.findById(id);
+      if (!post)
+      return res
+          .status(404)
+          .send(`post with id ${id} not found`)
+      res.status(200).send(post);
+    } catch (error) {
+      res.status(500).send({
+        message: "an error has occurred",
+      });
+    }
+  })
+
+posts.get('/post/type', async (req,res)=>{
+    const { page= 1, limit=20 , featured} = req.query
+    try {
+        const posts = await Posts
+        .find({featured:featured})
+        .limit(limit * 1)
+        .skip((page -1) * limit)
         res.status(200).send(posts)
     } catch (error) {
         res.status(500).send({
@@ -25,18 +67,6 @@ posts.get('/post/featured', async (req,res)=>{
         })
     }
 })
-
-posts.get('/postNotFeatured', async (req,res)=>{
-    try {
-        const posts = await Posts.find({featured:false})
-        res.status(200).send(posts)
-    } catch (error) {
-        res.status(500).send({
-            message:'an error has occured'
-        })
-    }
-})
-
 
 posts.post('/posts', async (req, res) => {
     const newPosts = new Posts({
