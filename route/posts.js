@@ -32,7 +32,7 @@ posts.get('/posts', async (req,res)=>{
 //         res.status(200).send(posts)
 //     } catch (error) {
 //         res.status(500).send({
-//             message:'an error has occured'
+//             message:'an error has occurred'
 //         })
 //     }
 // })
@@ -54,7 +54,7 @@ posts.get("/posts/:id", async (req, res) => {
   })
 
 posts.get('/post/type', async (req,res)=>{
-    const { page= 1, limit=20 , featured} = req.query
+    const { page= 1, limit=40 , featured} = req.query
     try {
         const posts = await Posts
         .find({featured:featured})
@@ -81,13 +81,13 @@ posts.post('/posts', async (req, res) => {
     try {
         const savePosts = await newPosts.save()
         res.status(200).send({
-            message: "Post saved succesfully",
+            message: "Post saved successfully",
             payload: savePosts
         })
 
     } catch (error) {
         res.status(500).send({
-            message: "an erroe is occurred",
+            message: "an error is occurred",
             error: error
         })
 

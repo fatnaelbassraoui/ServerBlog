@@ -8,7 +8,6 @@ const PostSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        min: 2
     },
     img:{
         type:String,
@@ -19,7 +18,6 @@ const PostSchema = new mongoose.Schema({
     body:{
         type:String,
         required:true,
-        min:10
     },
     featured:{
         type:Boolean,

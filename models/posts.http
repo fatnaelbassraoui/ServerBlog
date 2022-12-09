@@ -16,23 +16,33 @@ POST http://localhost:3030/posts HTTP/1.1
 content-Type: application/json
 
 {  
-        "author": "Lorem 1",
-        "title":"Where can i go?",
-        "body":"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
-        "img":"https://i.pinimg.com/474x/55/bf/58/55bf58ea1189dd5a90efe59f6f16fd51.jpg",
-        "category":"fantasy fair",
-        "featured": true
+        "author": "Moha T.",
+        "title":" Visit Marrakesh in 3 days",
+        "body":"Marrakech is more than just an ancient city in Morocco. It’s a sensory experience, of vibrant colors, flavors, smells, sounds, and unique sights. It’s world-famous for its markets and shopping in the Medina (old city) but there is so much more to do in Marrakech. Once you’ve witnessed the fascinating mix of European, Middle Eastern, and African culture, head out of the city for unparalleled mountain and desert scenery.Day 1: Medinas and Markets
+Everything in Marrakech goes on within the hustle and bustle of the Medina, the walled, most ancient part of the city. Spend a day, soaking up the sounds, smells, and sights of this remarkable area, experiencing the souks and squares.Day 2: Incredible Architecture
+Enjoy day 2 by jumping between beautiful buildings. See the traditional Moroccan architecture and designs of arches and blue tiles, but also the more innovative designs of artistic buildings and museums. Day 3: Outside of Marrakech
+The stunning nature of Morocco is just a stone’s throw away from the city. Once you’ve soaked up all the culture of dynamic Marrakech, take one of these day trips to experience country life, majestic mountains, or the heat of the Sahara. ",
+        "img":"https://i.pinimg.com/564x/04/ca/1d/04ca1dc413d77cc5afff831b606190f2.jpg",
+        "category":"Morocco",
+        "featured": false
         
     }
 
 ####
 
-DELETE http://localhost:3030/posts/63667c7020629e507e0586c0 HTTP/1.1
+DELETE http://localhost:3030/posts/639224085ba28cc426f99e39 HTTP/1.1
 
 ####
-PATCH http://localhost:3030/posts/636d62a57739f09235fb1745 HTTP/1.1
+PATCH http://localhost:3030/posts/636d6cc07739f09235fb1755 HTTP/1.1
 content-type: application/json
 
 {
-    "img":"https://i.pinimg.com/564x/04/ca/1d/04ca1dc413d77cc5afff831b606190f2.jpg"
+    
+        "author": "Maya h.",
+        "title":" Things To Do in Fes",
+        "body":"Mystical, magical Fes: a remarkable city located in Morocco, a UNESCO world heritage site, and home to the oldest and largest medina in North Africa! The city was once the capital of Morocco and is still widely viewed as the cultural epicenter of the country. Explore inside the medieval walls of the wonderfully chaotic medina, and discover towers of spices, traditional handicrafts, hammams, and tanneries. The past is alive here, so take one or two days to enjoy all the best things to do in Fes! Lose Yourself in the Fes Medina",
+        "img":"https://i.pinimg.com/564x/e9/dc/56/e9dc56fac1a0fa2e9871172e5f6b8e47.jpg",
+        "category":"Morocco",
+        "featured": true
+        
 }

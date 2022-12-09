@@ -1,6 +1,7 @@
 const express = require('express')
 const Login = require('../models/SignUp')
 const Bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 const login = express.Router()
 
@@ -22,9 +23,14 @@ login.post('/login', async (req, res) => {
                 message: 'Password non valida'
             })
         }
-    res
-        .status(200)
-        .send(user)
+    const token = jwt.sign({email:user.email},process.env.TOKEN_SECRET,{
+        expiresIn:'24h'
+    })
+    res.header('authorization',token)
+    .status(200)
+    .send({
+        token:token
+    })
 })
 
 module.exports = login
